@@ -19,6 +19,8 @@ class iscsi::initiator::package (
         Array[String[1], 1]         $names,
     ) {
 
+    include '::iscsi::initiator::service'
+
     package { $names:
         ensure => $ensure,
         notify => Class['iscsi::initiator::service'],
